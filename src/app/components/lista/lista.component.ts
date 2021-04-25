@@ -35,16 +35,19 @@ export class ListaComponent implements OnInit {
 
   ordenar(estilo: number){
     if(estilo===0){
+      this.order = 0;
       this.tareas.sort((a,b) =>
         a.titulo.localeCompare(b.titulo)
       );
     }else if(estilo===1){
+      this.order = 1;
       this.tareas.sort((a,b) => 
         (a.fecha > b.fecha) ? 1 : -1
       );
     } else {
+      this.order = 2;
       this.tareas.sort((a,b) => 
-        (a.prioridad < b.prioridad) ? 1 : -1
+        -(a.prioridad - b.prioridad)
       );
     }
   }

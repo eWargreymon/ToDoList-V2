@@ -1,3 +1,19 @@
+.top{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.basic{
+    background-color: #3366cc; 
+    color: white;
+}
+
+.active{
+    background-color: #ff4d88;
+    color: white;
+}
+
 .noTareas{
     color: gray;
 }

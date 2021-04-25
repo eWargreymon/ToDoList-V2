@@ -1,7 +1,12 @@
 <div class="header">
-    <button [routerLink]="['/lista']">Lista</button>
-    <button [routerLink]="['/formulario']">Formulario</button>
+  <mat-toolbar color="primary">
+    <span>ToDoList V2</span>
+    <button [routerLink]="['/lista']" mat-flat-button color="accent" class="ml-5">Lista de tareas</button>
+    <button [routerLink]="['/formulario']" mat-flat-button color="accent" class="ml-5">Formulario</button>
+    <button [routerLink]="['/historico']" mat-flat-button color="accent" class="ml-5">Completadas</button>
+  </mat-toolbar>
 </div>
+
 <div class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
