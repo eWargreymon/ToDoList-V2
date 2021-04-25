@@ -1,0 +1,27 @@
+<h1>Lista de Tareas pendientes</h1>
+
+<p>Ordenar por:</p>
+
+<button (click)="ordenar(0)">Título</button>
+<button (click)="ordenar(1)">Fecha</button>
+<button (click)="ordenar(2)">Prioridad</button>
+
+<h3 *ngIf="tareas.length===0" class="noTareas">No hay tareas pendientes, ¡Felicidades!</h3>
+
+<div class="lista">
+    <div class="tarea" *ngFor="let tarea of tareas" [ngClass]="{'incompleta':tarea.estado===0,'proceso':tarea.estado===1}">
+        <div class="top-side">
+            <h2 class="titulo">{{tarea.titulo}}</h2>
+            <h5 class="desc">{{tarea.descripcion}}</h5>
+            <p>Priority: {{tarea.prioridad}}</p>
+            <p *ngIf="tarea.estado===0">Waiting</p>
+            <p *ngIf="tarea.estado===1">In process</p>
+            <p>{{tarea.fecha | date:'short'}}</p>
+        </div>
+        <div class="bot-side">
+            <button *ngIf="tarea.estado===0" class=" btn btn-sm btn-success mr-1 controles" (click)="proceso(tarea)">Comenzar</button>
+            <button *ngIf="tarea.estado===1" class=" btn btn-sm btn-warning mr-1 controles" (click)="proceso(tarea)">Pausar</button>
+            <button class=" btn btn-sm btn-info controles" (click)="eliminar(tarea.id)">Completar</button>
+        </div>
+    </div>   
+</div>

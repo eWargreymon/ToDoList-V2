@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "todolist-fda44": {
+      "hosting": {
+        "todolistV2": [
+          "todolist-fda44"
+        ]
+      }
+    }
+  }
+}

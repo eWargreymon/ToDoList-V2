@@ -1,0 +1,28 @@
+.noTareas{
+    color: gray;
+}
+
+.lista{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tarea{
+    width: 250px;
+    border: 1px solid black;
+    margin: 5px 5px 5px 0;
+    padding: 5px 5px;
+    text-align: center;
+    display: grid;
+}
+
+.proceso{
+    background-color: palegreen;
+    border: 1px solid lightgreen;
+}
+
+.incompleta{
+    background-color: cornsilk;
+    border: 1px solid yellow;
+}
