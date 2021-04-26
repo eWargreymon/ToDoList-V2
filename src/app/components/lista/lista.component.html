@@ -17,16 +17,21 @@
 <div class="lista mat-typography">
     <div class="tarea" *ngFor="let tarea of tareas" [ngClass]="{'incompleta':tarea.estado===0,'proceso':tarea.estado===1}">
         <div class="top-side">
-            <h1 class="titulo">{{tarea.titulo}}</h1>
-            <h4 class="desc">{{tarea.descripcion}}</h4>
-            <p>Priority: {{tarea.prioridad}}</p>
-            <p *ngIf="tarea.estado===0">Pending</p>
-            <p *ngIf="tarea.estado===1">In process</p>
-            <p>{{tarea.fecha | date:'short'}}</p>
+            <div class="task">
+                <h1>{{tarea.titulo}}</h1>
+                <h4>{{tarea.descripcion}}</h4>
+            </div>
+            <div class="task-info">
+                <p>Priority: {{tarea.prioridad}}</p>
+                <p *ngIf="tarea.estado===0">Pending</p>
+                <p *ngIf="tarea.estado===1">In process</p>
+                <p>{{tarea.fecha | date:'short'}}</p>
+            </div>
         </div>
         <div class="bot-side">
             <button *ngIf="tarea.estado===0" class=" btn btn-sm btn-success mr-1" (click)="proceso(tarea)">Comenzar</button>
             <button *ngIf="tarea.estado===1" class=" btn btn-sm btn-warning mr-1" (click)="proceso(tarea)">Pausar</button>
+            <button class=" btn btn-sm btn-dark mr-1" (click)="editar(tarea)">Editar</button>
             <button class=" btn btn-sm btn-info" (click)="eliminar(tarea.id)">Completar</button>
         </div>
     </div>   

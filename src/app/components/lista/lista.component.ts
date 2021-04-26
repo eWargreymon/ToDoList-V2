@@ -10,10 +10,12 @@ import { TareaServiceService } from 'src/app/services/tarea-service.service';
 export class ListaComponent implements OnInit {
 
   tareas: Tarea[];
-
   order: number;
 
-  constructor(private tareasService: TareaServiceService) { 
+  constructor(
+    private tareasService: TareaServiceService,
+  )
+  { 
     this.tareas = [];
     this.order = 0;
   }
@@ -52,6 +54,9 @@ export class ListaComponent implements OnInit {
     }
   }
 
+  edit(tarea: Tarea){
+    
+  }
 
   eliminar(id: string){
     this.tareasService.deleteTarea(id);
