@@ -14,12 +14,21 @@ export class TareaServiceService {
     return this.afs.collection('todolist').snapshotChanges();
   }
 
+  getCompleted(){
+    return this.afs.collection('completed').snapshotChanges();
+  }
+
   addTarea(payload: Tarea){
     return this.afs.collection('todolist').add(payload);
   }
 
-  deleteTarea(id: string){
-    return this.afs.doc('todolist/' + id).delete();
+  completarTarea(task: Tarea){
+    this.afs.collection('completed').add(task);
+    this.afs.doc('todolist/' + task.id).delete();
+  }
+
+  borrarTarea(id: string){
+    return this.afs.doc('completed/' + id).delete();
   }
 
   inProcess(id: string, process: boolean){
