@@ -11,6 +11,7 @@ export class ListaComponent implements OnInit {
 
   tareas: Tarea[];
   order: number;
+  filter: number;
 
   constructor(
     private tareasService: TareaServiceService,
@@ -18,6 +19,7 @@ export class ListaComponent implements OnInit {
   { 
     this.tareas = [];
     this.order = 0;
+    this.filter = 0;
   }
 
   ngOnInit(): void {
@@ -54,12 +56,16 @@ export class ListaComponent implements OnInit {
     }
   }
 
+  filtrar(filtro: number){
+    this.filter = filtro;
+  }
+
   edit(tarea: Tarea){
     
   }
 
-  eliminar(id: string){
-    this.tareasService.deleteTarea(id);
+  completar(task: Tarea){
+    this.tareasService.completarTarea(task);
   }
 
   proceso(tarea: Tarea){
